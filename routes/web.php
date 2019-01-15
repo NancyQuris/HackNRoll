@@ -11,7 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
 Route::get('/', 'pageController@home');
 
 Route::get('/aboutUs', 'pageController@aboutUs');
