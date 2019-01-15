@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', 'pageController@home');
 
 Route::get('/aboutUs', 'pageController@aboutUs');
@@ -22,3 +23,4 @@ Route::get('/Users/{user}', function (App\User $user) {
 */
 
 Route::resource('users', 'UserController');
+
