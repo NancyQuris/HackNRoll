@@ -23,3 +23,7 @@ Route::get('/Users/{user}', function (App\User $user) {
 
 Route::resource('users', 'UserController');
 
+Route::get('/chat', 'ChatsController@index');
+Route::get('./chat/messages', 'ChatsController@fetchMessages');
+Route::post('/chat/messages', 'ChatsController@sendMessage');
+
