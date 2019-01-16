@@ -4,58 +4,11 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-  body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-  body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-  }
-
-  /* Create a Parallax Effect */
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  /* First image (Profile banner) */
-  .bgimg-1 {
-    background-image: url('/css/friend_banner.jpg');
-    min-height: 100%;
-  }
-
-  /* Second image (Portfolio) */
-  .bgimg-2 {
-    background-image: url("/css/self-photo.jpg");
-    min-height: 400px;
-  }
-
-  /* Third image (Contact) */
-  .bgimg-3 {
-    background-image: url("/css/self-photo.jpg");
-    min-height: 400px;
-  }
-
-  .w3-wide {letter-spacing: 10px;}
-  .w3-hover-opacity {cursor: pointer;}
-
-  /* Turn off parallax scrolling for tablets and phones */
-  @media only screen and (max-device-width: 1600px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-      background-attachment: scroll;
-      min-height: 400px;
-    }
-  }
-  </style>
+  <link rel="stylesheet" href="/css/home.css">
 
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
       <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i>HOME</a>
       <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
       <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-phone"></i> START CHATTING</a>
@@ -125,8 +78,6 @@
       <i class="fa fa-twitter w3-hover-opacity"></i>
       <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  </footer>
 
   <script>
   // Change style of navbar on scroll
