@@ -3,11 +3,11 @@
 @section('title', 'user infomation')
 
 @section('content')
-	@foreach($users as $user) 
+	@foreach($users as $user)
 		<ul>
-			<li> 
+			<li>
 				<font size="5">
-					{{$user->name}} &nbsp;&nbsp;<a href="/Users/{{$user->id}}">detail</a>
+					{{$user->name}} &nbsp;&nbsp;<a href="/users/{{$user->id}}">detail</a>
 				</font>
 				<font size="3">
 					<ul>email: &nbsp;{{$user->email}}</ul>
