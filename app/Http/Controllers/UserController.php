@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->except(auth()->user()->id);
         return view('user.index', compact("users"));
     }
 
