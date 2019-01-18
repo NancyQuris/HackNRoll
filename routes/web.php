@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', 'pageController@home');
+
+Route::get('/aboutUs', 'pageController@aboutUs');
+
+/*
+Route::get('/Users/{user}', function (App\User $user) {
+    return $user;
 });
+*/
+
+Route::resource('users', 'UserController');
+
+Route::get('/chat', 'ChatsController@index');
+Route::get('./chat/messages', 'ChatsController@fetchMessages');
+Route::post('/chat/messages', 'ChatsController@sendMessage');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
