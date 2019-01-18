@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', 'pageController@home');
 
 Route::get('/aboutUs', 'pageController@aboutUs');
@@ -18,6 +19,10 @@ Route::get('/aboutUs', 'pageController@aboutUs');
 /*
 Route::get('/Users/{user}', function (App\User $user) {
     return $user;
+=======
+Route::get('/', function () {
+    return view('home');
+>>>>>>> 3a272c594d50a0a0a91dbf9c1da03cc92f47c45d
 });
 */
 
