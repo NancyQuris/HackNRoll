@@ -3,26 +3,25 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Chats</div>
-                <div class="card-body">
-                    Chats
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Chats</div>
+
+                <div class="panel-body" style="background-color: #D3D3D3">
+                    <chat-messages :messages="messages"></chat-messages>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">Users</div>
-                <div class="card-body">
-                    Users
+                <div class="panel-footer">
+                    <chat-form
+                        v-on:messagesent="addMessage"
+                        :user="{{ Auth::user() }}"
+                    ></chat-form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 @endsection
+
 
 

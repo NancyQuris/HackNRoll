@@ -22,6 +22,7 @@
 
         methods: {
             sendMessage() {
+                //alert("hi");
                 this.$emit('messagesent', {
                     user: this.user,
                     message: this.newMessage

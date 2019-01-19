@@ -49,8 +49,8 @@ if (token) {
  window.Pusher = require('pusher-js');
 
  window.Echo = new Echo({
-     broadcaster: 'pusher',
-     key: env('PUSHER_APP_KEY'),
-     cluster: env('PUSHER_APP_CLUSTER'),
-     encrypted: true
- });
+    broadcaster: 'pusher',
+    key: '226341ad2e1d6cac5bd9',
+    cluster: 'ap1',
+    encrypted: true
+});

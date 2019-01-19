@@ -26,8 +26,12 @@ Route::resource('users', 'UserController');
 Route::get('/chat', 'ChatsController@index');
 Route::get('./chat/messages', 'ChatsController@fetchMessages');
 Route::post('/chat/messages', 'ChatsController@sendMessage');
+Route::get('/message', 'MessageController@index')->name('message');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');

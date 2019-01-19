@@ -19,10 +19,13 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-//Vue.component('chat-component', require('./components/chatComponent.vue'));
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
+Vue.component('chat-component', require('./components/ChatComponent.vue').default);
+Vue.component('user-component', require('./components/UserComponent.vue').default);
+Vue.component('chat-messages-component', require('./components/ChatMessageComponent.vue').default);
+Vue.component('chat-form-component', require('./components/ChatFormComponent.vue').default);
+Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
+Vue.component('chat-form', require('./components/ChatForm.vue').default);
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -40,12 +43,12 @@ const app = new Vue({
     created() {
         this.fetchMessages();
         Echo.private('chat')
-			.listen('MessageSent', (e) => {
-				this.messages.push({
-				    message: e.message.message,
-				    user: e.user
-				})
-		})
+    			.listen('MessageSent', (e) => {
+    				this.messages.push({
+    				    message: e.message.message,
+    				    user: e.user
+    				})
+    		})
     },
 
     methods: {
@@ -56,11 +59,11 @@ const app = new Vue({
         },
 
         addMessage(message) {
+            //alert("add message!");
             this.messages.push(message);
-
             axios.post('/messages', message).then(response => {
-              console.log(response.data);
+                console.log(response.data);
             });
         }
-    },
+    }
 });
