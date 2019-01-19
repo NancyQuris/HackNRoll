@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->longText('self-introduction');
-            $table->double("analystPct",3,1);
-            $table->double("sentinelPct",3,1);
-            $table->double("explorerPct",3,1);
-            $table->double("diplomatPct",3,1);
+            $table->longText('self_introduction')->nullable();
+            $table->double("analystPct",3,1)->nullable();
+            $table->double("sentinelPct",3,1)->nullable();
+            $table->double("explorerPct",3,1)->nullable();
+            $table->double("diplomatPct",3,1)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

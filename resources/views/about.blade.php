@@ -1,4 +1,4 @@
-@extends('style')
+@extends('layouts.app')
 
 @section('title', 'AboutUs')
 
