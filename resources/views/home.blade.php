@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/home.css">
 
-  <!-- Navbar (sit on top) -->
+  {{-- <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar" id="myNavbar">
       <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i>HOME</a>
@@ -20,33 +20,33 @@
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <a href="#contact" class="w3-bar-item w3-button">START CHATTING</a>
     </div>
-  </div>
+  </div> --}}
+  
 
   <!-- Logo -->
   <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
     <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">ALICE'S <span class="w3-hide-small">HOME</span> PAGE</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><?php echo strtoupper(auth()->user()->name."'s") ?> <span class="w3-hide-small">HOME</span> PAGE</span>
     </div>
   </div>
 
   <!-- Container (About Section) -->
   <div class="w3-content w3-container w3-padding-64" id="about">
     <h3 class="w3-center">ABOUT ME</h3>
-    <p class="w3-center"><em>I love photography</em></p>
-    <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-      qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
     <div class="w3-row">
       <div class="w3-col m6 w3-center w3-padding-large">
-        <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
         <img src="/css/self-photo.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
       </div>
 
       <!-- Hide this text on small devices -->
       <div class="w3-col m6 w3-hide-small w3-padding-large">
-        <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        @if(auth()->user()->self_introduction)
+          {!!auth()->user()->self_introduction!!}
+        @else
+          {{auth()->user()->name." hasn't written his/her introduction"}}
+        @endif
       </div>
     </div>
     <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>

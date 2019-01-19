@@ -56,21 +56,31 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
+        $user = User::find($id);
         return view('user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     * @param  \Illuminate\Http\Request $request
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(Request $request, User $user)
     {
-        $user->update(request(['name', 'email']));
-        return redirect('/users/'.$user->id);
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'required',
+            'self_introduction'=>'required',
+        ]);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->self_introduction = $request->input('self_introduction');
+        $user->save();
+
+        return redirect('/users/'.$user->id)->with('success','Profile updated!');
     }
 
     /**
