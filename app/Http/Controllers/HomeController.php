@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function storeIntro() {
+        $user = auth()->user();
+        $user->self_introduction = request('self_introduction');
+        $user->save();
+        return redirect('/home');
+    }
 }

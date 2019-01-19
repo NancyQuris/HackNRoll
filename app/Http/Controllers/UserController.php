@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd("test");
     }
 
     /**
@@ -93,5 +93,6 @@ class UserController extends Controller
     {
         //
     }
+
 
 }
