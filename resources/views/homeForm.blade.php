@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Home page for new user')
+
 @section('content')
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -53,7 +55,7 @@
       </div>
     </div>
     <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>
-    <a href="">start to discover your persoanlity!</a>
+    <a href="/user/testForm">start to discover your persoanlity!</a>
     </div>
   </div>
 

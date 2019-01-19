@@ -39,3 +39,10 @@ Route::post('/homeForm', 'HomeController@storeIntro');
 Route::get('/testform', function(){
     return view('user.testform');
 });
+
+Route::get('/user/testForm', 'pageController@testForm');
+
+Route::get('/user/editBackground', 'pageController@editBackground');
+
+Route::get('/user/EditPhoto', 'pageController@editPhoto');
+
