@@ -18,11 +18,9 @@
 				</li>
 			</ul>
 		@endforeach
+		{{$users->links()}}
 	@else
 		<h3>No other users</h3>
 	@endif
 </div>
-	<br>
-	<a href="/">Home</a><br>
-	<a href="/aboutUs">About us</a>
 @endsection

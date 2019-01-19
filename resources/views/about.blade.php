@@ -3,7 +3,8 @@
 @section('title', 'AboutUs')
 
 @section('content') 
+<div class = "container">
 	<p>I will not tell U who I AM</p>
-	<a href="/">Home</a><br>
-	<a href="/users">find others</a>
+	
+</div>
 @endsection
