@@ -46,3 +46,4 @@ Route::get('/user/editBackground', 'pageController@editBackground');
 
 Route::get('/user/EditPhoto', 'pageController@editPhoto');
 
+Route::post('/answer','AnswerController@analyze');

@@ -26,9 +26,12 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function storeIntro() {
+    public function storeIntro(Request $request) {
+        $this->validate($request,[
+            'self_introduction' => 'required',
+        ]);
         $user = auth()->user();
-        $user->self_introduction = request('self_introduction');
+        $user->self_introduction = $request->input('self_introduction');
         $user->save();
         return redirect('/home');
     }
