@@ -35,3 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/homeForm', 'pageController@homeForm');
 
 Route::post('/homeForm', 'HomeController@storeIntro');
+
+Route::get('/testform', function(){
+    return view('user.testform');
+});
