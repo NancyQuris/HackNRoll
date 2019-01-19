@@ -18,9 +18,8 @@
 				</li>
 			</ul>
 		@endforeach
-		{{$users->links()}}
 	@else
-		<h3>No other users</h3>
+		<h3>No users with similar personalities</h3>
 	@endif
 </div>
 @endsection
