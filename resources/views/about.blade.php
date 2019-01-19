@@ -11,6 +11,9 @@
   </div>
   <div class="w3-display-middle">
     <h1 class="w3-jumbo w3-animate-top">I will not tell U who I AM</h1>
+    <div class="w3-center w3-jumbow3-animate-top">
+    <h2><a href="/">Go back to home</a></h2>
+  </div>
   </div>
 </div>
 

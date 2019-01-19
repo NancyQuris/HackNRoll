@@ -47,5 +47,7 @@
         <li>J – Judgment preferred to perception: INFJs tend to plan their activities and make decisions early. They derive a sense of control through predictability.
         </li>
     </div>
+    <br>
+    <button><a href="/homeForm" style="font-size:15pt">go back to fill in your self introduction</a></button>
 </div>
 @endsection
