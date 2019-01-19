@@ -15,5 +15,21 @@ class pageController extends Controller
     public function aboutUs() {
     	return view('about');
     }
+
+    public function homeForm() {
+    	return view('homeForm');
+    }
+
+    public function testForm() {
+        return view('user/testform');
+    }
+
+    public function editBackground() {
+        return view('user/editbackground');
+    }
+
+    public function editPhoto() {
+        return view('user/editphoto');
+    }
 }
 

@@ -35,3 +35,23 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
+
+Route::get('/homeForm', 'pageController@homeForm');
+
+Route::post('/homeForm', 'HomeController@storeIntro');
+
+Route::get('/testform', function(){
+    return view('user.testform');
+});
+
+Route::get('/user/testForm', 'pageController@testForm');
+
+Route::get('/user/editBackground', 'pageController@editBackground');
+
+Route::get('/user/editPhoto', 'pageController@editPhoto');
+
+Route::post('/answer','AnswerController@analyze');
+
+Route::post('uploadBackground', 'UploadController@uploadBackground');
+
+Route::post('uploadPhoto', 'UploadController@uploadPhoto');
