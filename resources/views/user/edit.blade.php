@@ -4,26 +4,24 @@
 
 @section('content')
 <div class = "container">
-	{!! Form::open(['action'=>'UserController@update','method'=>"POST"])!!}
+	{!!Form::open(['action'=>['UserController@update',$user],'method'=>'POST'])!!}
 	{{-- <form method="POST" action="/users/{{$user->id}}"> --}}
 		{{method_field('PATCH')}}
 		{{ csrf_field() }}
-		<div>
-		    {{Form::label('Current Name','{{$user->name}}')}}
-			<input type="text" name="name" placeholder="New Name" value='{{$user->name}}>
+		<div class = "form-group">
+			{{Form::label('name','Name')}}
+			{{Form::text('name',$user->name,['class'=>'form-control','placeholder'=>'name'])}}
 		</div>
-		<div>
-		    <div name = "oldEmail">Current email: {{$user->email}}</div>
-			<input type="text" name="email" placeholder="New Email" value>
+		<div class = "form-group">
+			{{Form::label('email','Email')}}
+			{{Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'email'])}}
 		</div>
-		<div>
-				<div name = "oldSelfIntro">Current self-introduction: {{$user->self_introduction}}</div>
-				<input type="text" name="intro" placeholder="New intro">
-			</div>
-		<div>
-			<button type="submit">make changes</button>
+		<div class = "form-group">
+			{{Form::label('self_intro','Self_introduction')}}
+			{{Form::textarea('self_introduction',$user->self_introduction,['id'=> 'article-ckeditor','class'=>'form-control','placeholder'=>'self_introduction'])}}		
 		</div>
-	{{-- </form> --}}
-	{{!!Form::close()!!}}
+		{{Form::hidden('_method','PUT')}}
+		{{Form::submit('Update',['class'=>'btn btn-primary'])}}
+		{!!Form::close()!!}
 </div>
 @endsection

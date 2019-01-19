@@ -41,14 +41,12 @@
 
       <!-- Hide this text on small devices -->
       <div class="w3-col m6 w3-hide-small w3-padding-large">
-        <?php
-        if(auth()->user()->self_introduction){
-          echo auth()->user()->self_introduction;
-        }
-        else{
-          echo auth()->user()->name." hasn't written his/her introduction";
-        }
-        ?>
+        
+        @if(auth()->user()->self_introduction)
+          {!!auth()->user()->self_introduction!!}
+        @else
+          {{auth()->user()->name." hasn't written his/her introduction"}}
+        @endif
       </div>
     </div>
     <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>
