@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all()->except(auth()->user()->id);
+        $users = User::orderBy('created_at','desc')->paginate(1);
         return view('user.index', compact("users"));
     }
 

@@ -18,6 +18,7 @@
 				</li>
 			</ul>
 		@endforeach
+		{{$users->links()}}
 	@else
 		<h3>No other users</h3>
 	@endif
