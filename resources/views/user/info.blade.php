@@ -8,7 +8,8 @@
 	<li>Email: {{$user->email}}</li>
 	<li>Self_introduction: {!!$user->self_introduction!!}</li>
 	@if($user == auth()->user())
-		<a href="/users/{{$user->id}}/edit">edit</a><br>
+		<button class="btn btn-primary"><a href="/users/{{$user->id}}/edit">edit</a></button><br>
+	
 	@endif
 </div>
 @endsection
