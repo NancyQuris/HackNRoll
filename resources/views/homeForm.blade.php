@@ -45,11 +45,11 @@
       <!-- Hide this text on small devices -->
       <div class="w3-col m6 w3-hide-small w3-padding-large">
        <form method="POST" actions="/homeForm">
-        @csrf
-        <input type="text" name="self introduction" placeholder="self introduction">
-        <br >
-        <button type="submit">submit</button>
-      </form>
+          @csrf
+          <input type="text" name="self_introduction" placeholder="self introduction">
+          <br >
+          <button type="submit">submit</button>
+        </form>
       </div>
     </div>
     <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>
