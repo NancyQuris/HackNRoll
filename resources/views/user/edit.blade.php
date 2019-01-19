@@ -5,9 +5,12 @@
 @section('content')
 <div class = "container">
 	<br>
-    <li><a href="/user/editBackground"> Click to upload background picture</a></li>
-    <br>
-    <li><a href="/user/editPhoto"> Click to upload profile photo</a></li>
+    <a href="/user/editBackground" style="color:#666"> Click to upload background picture</a>
+	<br>
+	<br>
+	<a href="/user/editPhoto" style="color:#666"> Click to upload profile photo</a>
+	<br>
+	<br>
 	{!!Form::open(['action'=>['UserController@update',$user],'method'=>'POST'])!!}
 	{{-- <form method="POST" action="/users/{{$user->id}}"> --}}
 		{{method_field('PATCH')}}
