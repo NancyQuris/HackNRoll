@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'Who R U')
-
 @section('content')
- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                		<hi> hi {{ $name }}</hi>
-					    <p>U deserve Ur true self</p>
-					    
-                </div>
-            </div>
-        </div>
-    </div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="/css/initial.css">
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Logo
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top">Take a journey to your heart</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:80%">
+    <p class="w3-large w3-center">Find your true self & similar persons</p>
+  </div>
 </div>
+
 @endsection
