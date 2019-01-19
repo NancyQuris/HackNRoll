@@ -31,3 +31,7 @@ Route::post('/chat/messages', 'ChatsController@sendMessage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/testform', function(){
+    return view('user.testform');
+});
