@@ -39,3 +39,5 @@ Route::post('/homeForm', 'HomeController@storeIntro');
 Route::get('/testform', function(){
     return view('user.testform');
 });
+
+Route::post('/answer','AnswerController@analyze');
