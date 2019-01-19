@@ -1,19 +1,29 @@
-@extends('style')
+@extends('layouts.app')
 
 @section('title', 'edit profile')
 
 @section('content')
-	<form method="POST" action="/users/{{$user->id}}">
+<div class = "container">
+	{!! Form::open(['action'=>'UserController@update','method'=>"POST"])!!}
+	{{-- <form method="POST" action="/users/{{$user->id}}"> --}}
 		{{method_field('PATCH')}}
 		{{ csrf_field() }}
 		<div>
-			<input type="text" name="name" value="{{$user->name}}">
+		    {{Form::label('Current Name','{{$user->name}}')}}
+			<input type="text" name="name" placeholder="New Name" value='{{$user->name}}>
 		</div>
 		<div>
-			<input type="text" name="email" value="{{$user->email}}">
+		    <div name = "oldEmail">Current email: {{$user->email}}</div>
+			<input type="text" name="email" placeholder="New Email" value>
 		</div>
+		<div>
+				<div name = "oldSelfIntro">Current self-introduction: {{$user->self_introduction}}</div>
+				<input type="text" name="intro" placeholder="New intro">
+			</div>
 		<div>
 			<button type="submit">make changes</button>
 		</div>
-	</form>
+	{{-- </form> --}}
+	{{!!Form::close()!!}}
+</div>
 @endsection
