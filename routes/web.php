@@ -44,6 +44,10 @@ Route::get('/user/testForm', 'pageController@testForm');
 
 Route::get('/user/editBackground', 'pageController@editBackground');
 
-Route::get('/user/EditPhoto', 'pageController@editPhoto');
+Route::get('/user/editPhoto', 'pageController@editPhoto');
 
 Route::post('/answer','AnswerController@analyze');
+
+Route::post('uploadBackground', 'UploadController@uploadBackground');
+
+Route::post('uploadPhoto', 'UploadController@uploadPhoto');

@@ -15,7 +15,6 @@
 
   /* First image (Profile banner) */
   .bgimg-1 {
-    background-image: url('/css/friend_banner.jpg');
     min-height: 100%;
   }
 

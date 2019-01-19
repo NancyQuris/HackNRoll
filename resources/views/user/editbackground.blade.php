@@ -62,7 +62,7 @@
 			<div class="content">
 				
 				<h1>Edit background</h1>
-				<form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data">
+				<form action="{{ URL::to('uploadBackground') }}" method="post" enctype="multipart/form-data">
 					<label>Select image to upload:</label>
 				    <input type="file" name="file" id="file">
 				    <input type="submit" value="Upload" name="submit">

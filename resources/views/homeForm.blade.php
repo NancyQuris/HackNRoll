@@ -11,16 +11,16 @@
 
   <div class = "container">
     <br>
-    <li><a href=''> Click to upload background picture</a></li>
+    <li><a href="/user/editBackground"> Click to upload background picture</a></li>
     <br>
-    <li><a href=''> Click to upload profile photo</a></li>
+    <li><a href="/user/editPhoto"> Click to upload profile photo</a></li>
     <br>
     <li><a href="/testform">Click to start to discover your personality type!</a></li>
     <br>
    
       <div>
 
-       <li>Write your self_introduction below</li>
+       <li>Please Write your self-introduction below</li>
        <form method="POST" actions="/homeForm">
           @csrf
           <br>

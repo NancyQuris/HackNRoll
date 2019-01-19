@@ -25,6 +25,7 @@
 
   <!-- Logo -->
   <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <img src=<?php echo '/backgrounds/'.auth()->user()->name.'.jpg'?> alt="My background">
     <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><?php echo strtoupper(auth()->user()->name."'s") ?> <span class="w3-hide-small">HOME</span> PAGE</span>
     </div>
@@ -36,7 +37,7 @@
     
     <div class="w3-row">
       <div class="w3-col m6 w3-center w3-padding-large">
-        <img src="/css/self-photo.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+        <img src=<?php echo '/photos/'.auth()->user()->name.'.jpg'?> class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
       </div>
 
       <!-- Hide this text on small devices -->
