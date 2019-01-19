@@ -7,22 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/home.css">
 
-  {{-- <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar" id="myNavbar">
-      <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i>HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-phone"></i> START CHATTING</a>
-    </div>
-
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#contact" class="w3-bar-item w3-button">START CHATTING</a>
-    </div>
-  </div> --}}
-  
-
   <!-- Logo -->
   <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
     <img src=<?php echo '/backgrounds/'.auth()->user()->name.'.jpg'?> alt="My background">
@@ -51,22 +35,27 @@
       </div>
     </div>
     <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>
-    <p class="w3-wide">Analyst</p>
+    @if(!auth()->user()->iPct)
+    <div style="text-align:center">You haven't take personality test yet. Please take it through the <a href='/testform' style="color:blue">link</a> here.</div>
+    
+    @else
+    <p class="w3-wide">I</p>
     <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:{{auth()->user()->iPct*100}}%">{{auth()->user()->iPct*100}}%</div>
     </div>
-    <p class="w3-wide">Sentinel</p>
+    <p class="w3-wide">N</p>
     <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:{{auth()->user()->nPct*100}}%">{{auth()->user()->nPct*100}}%</div>
     </div>
-    <p class="w3-wide">Explorer</p>
+    <p class="w3-wide">F</p>
     <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:{{auth()->user()->fPct*100}}%">{{auth()->user()->fPct*100}}%</div>
     </div>
-    <p class="w3-wide">Diplomat</p>
+    <p class="w3-wide">J</p>
     <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:{{auth()->user()->jPct*100}}%">{{auth()->user()->jPct*100}}%</div>
     </div>
+    @endif
   </div>
 
   <!-- Footer -->
@@ -81,17 +70,5 @@
       <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
 
-  <script>
-  // Change style of navbar on scroll
-  window.onscroll = function() {myFunction()};
-  function myFunction() {
-      var navbar = document.getElementById("myNavbar");
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-          navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-      } else {
-          navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-      }
-  }
-  </script>
 @endsection
 

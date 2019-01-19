@@ -33,7 +33,8 @@
     chart.draw(data, options);
     }
     </script>
-<div class = "container-right" style="margin-left:600px"><br><br><br><br><br><h3>There are xx users that share similar personalities with you.</h3></div>
+
+<div class = "container-right" style="margin-left:600px"><br><br><br><br><br><h3>There are {{$array[4]}} users that share similar personalities with you.</h3></div>
     <div class = "clear" style = "clear:both">
     <br>
     <div class = "container-down">

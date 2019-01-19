@@ -40,7 +40,7 @@
                         &nbsp &nbsp 
                         <a href="/users/{{auth()->user()->id}}/edit" style = "color:grey">Edit</a>
                         &nbsp &nbsp 
-                        <a href="/users" style = "color:grey">All users</a>
+                        <a href="/users" style = "color:grey">Similar users</a>
                         <ul class="navbar-nav mr-auto"></ul>
                        
                     @endif
