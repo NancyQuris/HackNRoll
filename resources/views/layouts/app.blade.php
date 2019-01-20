@@ -52,6 +52,8 @@
                         <a href="/users/{{auth()->user()->id}}/edit" style = "color:grey">Edit</a>
                         &nbsp &nbsp 
                         <a href="/users" style = "color:grey">Similar users</a>
+                        &nbsp &nbsp 
+                        <a href="/chat" style = "color:grey">Chat Room</a>
                         <ul class="navbar-nav mr-auto"></ul>
                        
                     @endif
