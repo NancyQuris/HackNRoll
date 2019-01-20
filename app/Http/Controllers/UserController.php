@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+//use \App\Http\Conrollers\AnswerController;
 
 class UserController extends Controller
 {
@@ -14,15 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('created_at','desc')->paginate(1);
+        $users = AnswerController::findSimilarUsers(auth()->user());
         return view('user.index', compact("users"));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\
-    Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -37,7 +37,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd("test");
     }
 
     /**
@@ -92,5 +91,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function visitHome(Request $request){
+        $userId = $_GET['userId'];
+        $user = User::find($userId);
+        return view('home')->with('user',$user);
     }
 }

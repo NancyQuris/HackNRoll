@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->longText('self_introduction')->nullable();
-            $table->double("analystPct",3,1)->nullable();
-            $table->double("sentinelPct",3,1)->nullable();
-            $table->double("explorerPct",3,1)->nullable();
-            $table->double("diplomatPct",3,1)->nullable();
+            $table->double("iPct",3,3)->nullable();
+            $table->double("nPct",3,3)->nullable();
+            $table->double("fPct",3,3)->nullable();
+            $table->double("jPct",3,3)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

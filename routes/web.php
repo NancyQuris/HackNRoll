@@ -21,6 +21,7 @@ Route::get('/Users/{user}', function (App\User $user) {
 });
 */
 
+Route::get('/users/visitHome', 'UserController@visitHome');
 Route::resource('users', 'UserController');
 
 Route::get('/chat', 'ChatsController@index');
@@ -66,3 +67,4 @@ Route::get('check',function(){
 Route::post('saveToSession','ChatsController@saveToSession');
 Route::post('deleteSession','ChatsController@deleteSession');
 Route::post('getOldMessage','ChatsController@getOldMessage');
+
