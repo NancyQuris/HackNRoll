@@ -34,6 +34,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('messages', 'ChatsController@fetchMessages');
+
 Route::post('messages', 'ChatsController@sendMessage');
 
 Route::get('/homeForm', 'pageController@homeForm');
@@ -55,3 +56,13 @@ Route::post('/answer','AnswerController@analyze');
 Route::post('uploadBackground', 'UploadController@uploadBackground');
 
 Route::post('uploadPhoto', 'UploadController@uploadPhoto');
+
+Route::post('send', 'ChatsController@send');
+
+Route::get('check',function(){
+	return session('chat');
+});
+
+Route::post('saveToSession','ChatController@saveToSession');
+Route::post('deleteSession','ChatController@deleteSession');
+Route::post('getOldMessage','ChatController@getOldMessage');

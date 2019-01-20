@@ -107,6 +107,12 @@
 </body>
 </html>
 <style>
+    .list-group {
+        overflow-y: scroll;
+        height: 200px;
+        line-height: 15px;
+    }
+
   .chat {
     list-style: none;
     margin: 0;
