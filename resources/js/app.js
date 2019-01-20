@@ -27,13 +27,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('message', require('./components/message.vue').default);
-// Vue.component('chat-component', require('./components/ChatComponent.vue').default);
-// Vue.component('user-component', require('./components/UserComponent.vue').default);
-// Vue.component('chat-messages-component', require('./components/ChatMessageComponent.vue').default);
-// Vue.component('chat-form-component', require('./components/ChatFormComponent.vue').default);
-// Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
-// Vue.component('chat-form', require('./components/ChatForm.vue').default);
-// Vue.component('message-component', require('./components/MessageComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -83,23 +76,53 @@ const app = new Vue({
                     chat:this.chat
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     this.message = ''
                 })
                 .catch(error => {
                   console.log(error);
                 });
             }
+        },
+
+        getOldMessages(){
+            axios.post('/getOldMessage')
+                  .then(response => {
+                    console.log(response.data.message);
+                    if (response.data != '') {
+                        this.chat = response.data;
+                    }
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+        },
+
+        deleteSession(){
+            axios.post('/deleteSession')
+            .then(
+                response=> this.$toaster.success('Chat history is deleted'),
+                window.location.reload()
+            );
         }
     },
 
     mounted() {
+        this.getOldMessages();
         Echo.private('chat')
             .listen('ChatEvent', (e) => {
                 this.chat.message.push(e.message);
                 this.chat.user.push(e.userName);
                 this.chat.color.push('warning');
                 this.chat.time.push(this.getTime());
+                axios.post('/saveToSession',{
+                    chat : this.chat
+                })
+                .then(response => {
+                })
+                .catch(error => {
+                    console.log(error);
+                });
             })
             .listenForWhisper('typing', (e) => {
                 if (e.name != '') {

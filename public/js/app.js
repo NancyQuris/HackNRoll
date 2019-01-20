@@ -58834,14 +58834,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('message', __webpack_require__(/*! ./components/message.vue */ "./resources/js/components/message.vue").default); // Vue.component('chat-component', require('./components/ChatComponent.vue').default);
-// Vue.component('user-component', require('./components/UserComponent.vue').default);
-// Vue.component('chat-messages-component', require('./components/ChatMessageComponent.vue').default);
-// Vue.component('chat-form-component', require('./components/ChatFormComponent.vue').default);
-// Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
-// Vue.component('chat-form', require('./components/ChatForm.vue').default);
-// Vue.component('message-component', require('./components/MessageComponent.vue').default);
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('message', __webpack_require__(/*! ./components/message.vue */ "./resources/js/components/message.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -58885,42 +58878,69 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           message: this.message,
           chat: this.chat
         }).then(function (response) {
-          console.log(response);
+          //console.log(response);
           _this.message = '';
         }).catch(function (error) {
           console.log(error);
         });
       }
+    },
+    getOldMessages: function getOldMessages() {
+      var _this2 = this;
+
+      axios.post('/getOldMessage').then(function (response) {
+        console.log(response.data.message);
+
+        if (response.data != '') {
+          _this2.chat = response.data;
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    deleteSession: function deleteSession() {
+      var _this3 = this;
+
+      axios.post('/deleteSession').then(function (response) {
+        return _this3.$toaster.success('Chat history is deleted');
+      }, window.location.reload());
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this4 = this;
 
+    this.getOldMessages();
     Echo.private('chat').listen('ChatEvent', function (e) {
-      _this2.chat.message.push(e.message);
+      _this4.chat.message.push(e.message);
 
-      _this2.chat.user.push(e.userName);
+      _this4.chat.user.push(e.userName);
 
-      _this2.chat.color.push('warning');
+      _this4.chat.color.push('warning');
 
-      _this2.chat.time.push(_this2.getTime());
+      _this4.chat.time.push(_this4.getTime());
+
+      axios.post('/saveToSession', {
+        chat: _this4.chat
+      }).then(function (response) {}).catch(function (error) {
+        console.log(error);
+      });
     }).listenForWhisper('typing', function (e) {
       if (e.name != '') {
-        _this2.typing = 'typing...';
+        _this4.typing = 'typing...';
       } else {
-        _this2.typing = '';
+        _this4.typing = '';
       }
     });
     Echo.join("chat").here(function (users) {
-      _this2.numberOfUsers = users.length;
+      _this4.numberOfUsers = users.length;
     }).joining(function (user) {
-      _this2.numberOfUsers += 1;
+      _this4.numberOfUsers += 1;
 
-      _this2.$toaster.success(user.name + ' is joined the chat room');
+      _this4.$toaster.success(user.name + ' is joined the chat room');
     }).leaving(function (user) {
-      _this2.numberOfUsers -= 1;
+      _this4.numberOfUsers -= 1;
 
-      _this2.$toaster.warning(user.name + ' is leaved the chat room');
+      _this4.$toaster.warning(user.name + ' is leaved the chat room');
     });
   }
 });

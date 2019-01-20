@@ -63,6 +63,6 @@ Route::get('check',function(){
 	return session('chat');
 });
 
-Route::post('saveToSession','ChatController@saveToSession');
-Route::post('deleteSession','ChatController@deleteSession');
-Route::post('getOldMessage','ChatController@getOldMessage');
+Route::post('saveToSession','ChatsController@saveToSession');
+Route::post('deleteSession','ChatsController@deleteSession');
+Route::post('getOldMessage','ChatsController@getOldMessage');

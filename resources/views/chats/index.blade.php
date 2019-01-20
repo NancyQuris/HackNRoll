@@ -23,6 +23,7 @@
             <li class="list-group-item active">
                 CHHHHHAAAAT
                 <span class="badge  badge-pill badge-danger"> @{{numberOfUsers}} </span>
+                <a href='' class="btn btn-warning btn-sm" @click.prevent='deleteSession'>Delete Chats</a>
             </li>
             <div class="badge badge-pill badge-primary">@{{ typing }}</div>
             <ul class="list-group" v-chat-scroll>
