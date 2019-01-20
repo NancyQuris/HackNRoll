@@ -92,4 +92,10 @@ class UserController extends Controller
     {
         //
     }
+
+    public function visitHome(Request $request){
+        $userId = $_GET['userId'];
+        $user = User::find($userId);
+        return view('home')->with('user',$user);
+    }
 }

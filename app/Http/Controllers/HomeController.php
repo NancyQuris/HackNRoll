@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with('user',auth()->user());
     }
 
     public function storeIntro(Request $request) {

@@ -21,6 +21,7 @@ Route::get('/Users/{user}', function (App\User $user) {
 });
 */
 
+Route::get('/users/visitHome', 'UserController@visitHome');
 Route::resource('users', 'UserController');
 
 Route::get('/chat', 'ChatsController@index');
@@ -51,3 +52,5 @@ Route::post('/answer','AnswerController@analyze');
 Route::post('uploadBackground', 'UploadController@uploadBackground');
 
 Route::post('uploadPhoto', 'UploadController@uploadPhoto');
+
+

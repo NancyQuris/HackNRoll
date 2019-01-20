@@ -9,9 +9,9 @@
 
     <!-- Logo -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <img src=<?php echo '/backgrounds/'.auth()->user()->name.'.jpg'?> alt="My background">
+      <img src=<?php echo '/backgrounds/'.$user->name.'.jpg'?> alt="My background">
       <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><?php echo strtoupper(auth()->user()->name."'s") ?> <span class="w3-hide-small">HOME</span> PAGE</span>
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><?php echo strtoupper($user->name."'s") ?> <span class="w3-hide-small">HOME</span> PAGE</span>
       </div>
     </div>
 
@@ -21,22 +21,25 @@
       
       <div class="w3-row">
         <div class="w3-col m6 w3-center w3-padding-large">
-          <img src=<?php echo '/photos/'.auth()->user()->name.'.jpg'?> class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+          <img src=<?php echo '/photos/'.$user->name.'.jpg'?> class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
         </div>
 
         <!-- Hide this text on small devices -->
         <div class="w3-col m6 w3-hide-small w3-padding-large">
           
-          @if(auth()->user()->self_introduction)
-            {!!auth()->user()->self_introduction!!}
+          @if($user->self_introduction)
+            {!!$user->self_introduction!!}
           @else
-            {{auth()->user()->name." hasn't written his/her introduction"}}
+            {{$user->name." hasn't written his/her introduction"}}
           @endif
         </div>
       </div>
       <p class="w3-large w3-center w3-padding-16">Personality analysis:</p>
-      @if(!auth()->user()->iPct)
-      <div style="text-align:center">You haven't take personality test yet. Please take it through the <a href='/testform' style="color:blue">link</a> here.</div>
+      @if(auth()->user()==$user&&!$user->iPct)
+      <div style="text-align:center">You haven't taken personality test yet. Please take it through the <a href='/testform' style="color:blue">link</a> here.</div>
+      
+      @elseif(auth()->user()!=$user&&!$user->iPct)
+      <div style="text-align:center">{{$user}} hasn't taken personality test yet. </div>
       
       @else
       <div class = "container">
@@ -51,10 +54,10 @@
 
       // Draw the chart and set the chart values
       function drawChart() {
-          var i = <?php echo auth()->user()->iPct?>;
-          var n = <?php echo auth()->user()->nPct?>;
-          var f = <?php echo auth()->user()->fPct?>;
-          var j = <?php echo auth()->user()->jPct?>;
+          var i = <?php echo $user->iPct?>;
+          var n = <?php echo $user->nPct?>;
+          var f = <?php echo $user->fPct?>;
+          var j = <?php echo $user->jPct?>;
           var data = google.visualization.arrayToDataTable([
           ['Personality Type', 'point'],
           ['I', i],

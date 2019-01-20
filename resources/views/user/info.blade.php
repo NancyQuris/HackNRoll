@@ -11,7 +11,7 @@
 	@if($user == auth()->user())
 		<button class="btn btn-primary"><a href="/users/{{$user->id}}/edit">edit</a></button><br>
 	@else
-		<button class="btn btn-primary"><a href="/users/home" style="color:white">Go to his/her homepage</a></button><br>
+<button class="btn btn-primary"><a href="/users/visitHome?userId={{$user->id}}" style="color:white">Go to his/her homepage</a></button><br>
 	@endif
 </div>
 @endsection
