@@ -18,6 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken'=> csrf_token(),
+            'user'=> [
+                'authenticated' => auth()->check(),
+                'id' => auth()->check() ? auth()->user()->id : null,
+                'name' => auth()->check() ? auth()->user()->name : null, 
+                ]
+            ])
+        !!};
+    </script> --}}
 </head>
 <body>
     <div id="app">
@@ -95,3 +106,47 @@
     </script>
 </body>
 </html>
+<style>
+    .list-group {
+        overflow-y: scroll;
+        height: 200px;
+        line-height: 15px;
+    }
+
+  .chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .chat li {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+  }
+
+  .chat li .chat-body p {
+    margin: 0;
+    color: #777777;
+  }
+
+  .panel-body {
+    overflow-y: scroll;
+    height: 350px;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+  }
+</style>

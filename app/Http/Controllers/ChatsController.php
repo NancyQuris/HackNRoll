@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\ChatEvent;
 use App\Events\MessageSent;
+use Illuminate\Foundation\Auth;
 
 class ChatsController extends Controller
 {
@@ -17,19 +19,26 @@ class ChatsController extends Controller
 	  	return view('chats.index');
 	}
 
-	public function fetchMessages()
+	public function send(Request $request) 
 	{
-	  	return Message::with('user')->get();
-	}
-
-	public function sendMessage(Request $request)
-	{
+		//return $request->all();
 		$user = auth()->user();
-	  	$message = $user->messages()->create([
-	  	  'message' => $request->input('message')
-	  	]);
-
-		broadcast(new MessageSent($user, $message))->toOthers();
-	  	return ['status' => 'Message Sent!'];
+		$this->saveToSession($request);
+		event(new ChatEvent($request->message, $user));
 	}
+
+	public function saveToSession(Request $request)
+    {
+    	session()->put('chat', $request->chat);
+    }
+
+    public function getOldMessage()
+    {
+    	return session('chat');
+    }
+
+    public function deleteSession()
+    {
+    	session()->forget('chat');
+    }
 }

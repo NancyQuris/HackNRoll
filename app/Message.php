@@ -11,4 +11,9 @@ class Message extends Model
 	public function user() {
 		$this->belongsTo("User::class");
 	}
+
+	public function checkSelfMsg()
+    {
+        return $this->user_id === auth()->user()->id;
+    }
 }
