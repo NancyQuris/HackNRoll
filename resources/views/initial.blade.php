@@ -6,9 +6,6 @@
 <link rel="stylesheet" href="/css/initial.css">
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Logo
-  </div>
   <div class="w3-display-middle">
     <h1 class="w3-jumbo w3-animate-top">Take a journey to your heart</h1>
     <hr class="w3-border-grey" style="margin:auto;width:80%">
