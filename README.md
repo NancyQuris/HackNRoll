@@ -9,7 +9,7 @@
 ## About Like-minded Fellow
 <img src="/homepage.png">
 Like-minded Fellow is a web app that aims to help people test their personality, find people who have similar personality to them and chat with them. <br/ >
-Users are supposed to start this web app by either login or register. After going through identification, users will then enter their home page that conatins their background photo, profile photo, self-description and personality analysis. The personality analysis is based on users' response to our own test survey. <br/ >
+Users are supposed to start this web app by either login or register. After going through identification, users will then enter their home page that contains their background photo, profile photo, self-description and personality analysis. The personality analysis is based on users' response to our own test survey. <br/ >
 Users can also find people with similar personality and chat with them. <br/ >
 This project was developed on Hack N Roll 2019.
 
